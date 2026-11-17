@@ -57,3 +57,10 @@ Scope: `index.html`, `css/style.css`, `js/script.js`, assets, live page at 1920 
 3. Rebuild `index.html`, `css/style.css`, `js/script.js` on the new design system.
 4. Re-run the responsive CDP probe, interaction tests, console check and Lighthouse.
 5. Fix anything the final audit surfaces.
+
+## 4. Final verification (post-fix)
+
+- **Responsive (CDP, true viewport widths 1920 / 1440 / 1024 / 768 / 425 / 375 / 320):** 0 overflow nodes, 0 clipped text nodes, 0 sub-11px text nodes. The 320px Achievements overflow was fixed structurally with `minmax(0, 1fr)` grid tracks, not `overflow-x: hidden`.
+- **Assets:** all 15 images load successfully after scrolling (lazy-loaded technology logos and university logo included); hero serves `portrait-web.webp`.
+- **Interactions:** theme toggle persists and keeps a constant accessible name with an accurate `aria-pressed` state; mobile menu opens/closes, locks the body, closes on Escape (restoring focus) and on nav-link click; nav active state tracks scrolling; back-to-top returns to 0; form validation blocks empty/invalid input, focuses the first invalid field and uses accessible error colours; no console errors.
+- **Lighthouse (served over HTTP):** Accessibility **1.00**, Best Practices **1.00**, SEO **1.00** in **both** light and dark themes, with zero failures. Light-theme muted text was darkened to `#5e6e84` to clear the 4.5:1 contrast threshold. The earlier robots.txt flag was a `file://` protocol limitation, not a file defect.

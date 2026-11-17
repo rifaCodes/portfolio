@@ -17,9 +17,9 @@
     document.documentElement.setAttribute("data-theme", theme);
     if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0b1220" : "#ffffff");
     if (themeToggle) {
-      const isLight = theme === "light";
-      themeToggle.setAttribute("aria-pressed", String(isLight));
-      themeToggle.setAttribute("aria-label", isLight ? "Switch to dark mode" : "Switch to light mode");
+      themeToggle.setAttribute("aria-pressed", String(theme === "dark"));
+      themeToggle.setAttribute("aria-label", "Dark mode");
+      themeToggle.setAttribute("title", "Toggle dark mode");
     }
   }
   applyTheme(initialTheme);
@@ -181,7 +181,7 @@
 
       if (!valid) {
         if (note) {
-          note.style.color = "var(--rose)";
+          note.style.color = "var(--danger)";
           note.textContent = "Please fill in all fields with valid information.";
         }
         const firstInvalid = $(".invalid", form);
@@ -199,7 +199,7 @@
       const mailto = `mailto:rifayesmin001@gmail.com?subject=${encodeURIComponent(fullSubject)}&body=${encodeURIComponent(body)}`;
 
       if (note) {
-        note.style.color = "var(--green)";
+        note.style.color = "var(--success)";
         note.textContent = "Your email app is opening with your message ready to send.";
       }
       window.location.href = mailto;
