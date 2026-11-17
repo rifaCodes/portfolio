@@ -59,12 +59,14 @@
   /* ---------- Mobile navigation ---------- */
   const menuToggle = $("#menuToggle");
   const navLinks = $("#navLinks");
+  const navOverlay = $("#navOverlay");
   function closeMenu() {
     if (!navLinks || !menuToggle) return;
     navLinks.classList.remove("open");
     menuToggle.classList.remove("is-active");
     menuToggle.setAttribute("aria-expanded", "false");
     menuToggle.setAttribute("aria-label", "Open navigation menu");
+    if (navOverlay) navOverlay.classList.remove("visible");
     document.body.classList.remove("nav-open");
   }
   if (menuToggle && navLinks) {
@@ -74,8 +76,11 @@
       menuToggle.classList.toggle("is-active", open);
       menuToggle.setAttribute("aria-expanded", String(open));
       menuToggle.setAttribute("aria-label", open ? "Close navigation menu" : "Open navigation menu");
+      if (navOverlay) navOverlay.classList.toggle("visible", open);
       document.body.classList.toggle("nav-open", open);
     });
+
+    if (navOverlay) navOverlay.addEventListener("click", closeMenu);
 
     $$("a", navLinks).forEach((link) => link.addEventListener("click", closeMenu));
 

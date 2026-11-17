@@ -21,9 +21,17 @@ robots.txt              Crawler directives for hosted deployments
 
 - Light theme by default, with a dark navy alternative; both use the same solid blue/teal accent system.
 - Inter for body copy, Plus Jakarta Sans for headings.
-- One card primitive, consistent 8/12/18px radii, 1px borders and hover-only shadows.
+- One card primitive, consistent 8/12/18px radii (16/22px on mobile), 1px borders and hover-only shadows.
 - No gradients, glow effects, blur/glassmorphism or decorative floating elements.
 - Scroll reveals and hover transitions are lightweight and honour `prefers-reduced-motion`.
+
+## Responsive design
+
+- Desktop keeps the professional two-column hero; above 2200px only the container width and spacing scale up.
+- On tablets and phones the hero reflows into an intentional sequence — introduction → portrait → details → stats — using CSS grid areas, so no content is duplicated or hidden.
+- Mobile navigation is a rounded menu sheet with a dimming overlay, staggered link entrance, 46px touch targets, body scroll lock, and dismissal via link, Escape, backdrop click or resize.
+- Mobile buttons use pill radii with a 46px minimum height; cards, grids and typography adapt fluidly down to 320px. Headings use balanced wrapping and long text is protected from overflow.
+- Verified at 2560, 1920, 1440, 1280, 1024, 768, 430, 390, 375 and 320px.
 
 ## Assets
 

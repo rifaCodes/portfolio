@@ -64,3 +64,11 @@ Scope: `index.html`, `css/style.css`, `js/script.js`, assets, live page at 1920 
 - **Assets:** all 15 images load successfully after scrolling (lazy-loaded technology logos and university logo included); hero serves `portrait-web.webp`.
 - **Interactions:** theme toggle persists and keeps a constant accessible name with an accurate `aria-pressed` state; mobile menu opens/closes, locks the body, closes on Escape (restoring focus) and on nav-link click; nav active state tracks scrolling; back-to-top returns to 0; form validation blocks empty/invalid input, focuses the first invalid field and uses accessible error colours; no console errors.
 - **Lighthouse (served over HTTP):** Accessibility **1.00**, Best Practices **1.00**, SEO **1.00** in **both** light and dark themes, with zero failures. Light-theme muted text was darkened to `#5e6e84` to clear the 4.5:1 contrast threshold. The earlier robots.txt flag was a `file://` protocol limitation, not a file defect.
+
+## 5. Apple-inspired responsive refinement
+
+- **Hero:** desktop two-column layout preserved. Below 980px the same markup is rearranged with grid areas into intro → portrait → details → stats, giving phones a deliberate visual rhythm instead of a shrunken desktop page.
+- **Navigation:** full-width dropdown replaced with a rounded, bordered menu sheet plus dimming overlay, staggered link entrance, 46px touch targets, active-link tint, scroll lock and complete dismissal behaviour (link, Escape with focus return, backdrop, resize).
+- **Typography and controls:** `clamp()` sizing, balanced heading wrapping, protected long-word wrapping, pill buttons with 46px touch height, softer 16/22px mobile card radii and press feedback for touch.
+- **Large displays:** container and spacing scale at 2200px+ so 2560px screens stay composed without changing the verified 1920px design.
+- **Verification:** the CDP audit now covers 2560 / 1920 / 1440 / 1280 / 1024 / 768 / 430 / 390 / 375 / 320px and checks overlaps in addition to overflow, clipped text and tiny text. All ten widths: **0 overflow, 0 clipped, 0 tiny, 0 overlaps**. Mobile-menu interaction check passes every state with 0 JS errors. Lighthouse remains **1.00 / 1.00 / 1.00** in both themes with no console errors.
