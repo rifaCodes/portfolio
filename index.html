@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#070b16" />
+  <title>Mst. Farhana Yesmin | Computer Science and Engineering Student</title>
+  <meta name="description" content="Portfolio of Mst. Farhana Yesmin, a Computer Science and Engineering student at Varendra University interested in programming, algorithms, web technologies, artificial intelligence and software development." />
+  <meta name="author" content="Mst. Farhana Yesmin" />
+  <meta name="keywords" content="Farhana Yesmin, CSE student, Varendra University, portfolio, web development, artificial intelligence, machine learning, programming, software development" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="preload" as="image" href="assets/images/portrait-web.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mst. Farhana Yesmin | Computer Science and Engineering Student" />
+  <meta property="og:description" content="Motivated CSE student at Varendra University with a strong interest in programming, software development, algorithms and web technologies." />
+  <meta property="og:url" content="https://farhanayesmin.github.io/portfolio/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mst. Farhana Yesmin | CSE Student" />
+  <meta name="twitter:description" content="Portfolio of Mst. Farhana Yesmin — Computer Science and Engineering student, Varendra University." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mst. Farhana Yesmin",
+    "email": "mailto:rifayesmin001@gmail.com",
+    "telephone": "+8801968320455",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Rajshahi",
+      "addressCountry": "BD"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Varendra University",
+      "address": { "@type": "PostalAddress", "addressLocality": "Rajshahi", "addressCountry": "BD" }
+    },
+    "sameAs": ["https://www.linkedin.com/in/farhana-yesmin"],
+    "knowsAbout": ["Computer Science", "Programming", "Data Structures", "Algorithms", "Web Development", "Artificial Intelligence", "Machine Learning"]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Loading animation -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-mark">FY<span>.</span></div>
+      <div class="loader-bar"><span></span></div>
+      <p class="loader-text">Loading portfolio</p>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Icon sprite -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+      <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6 10-6"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.8a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.33 1.84.56 2.8.69A2 2 0 0 1 22 16.92Z"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6Z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></symbol>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol>
+      <symbol id="i-cap" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></symbol>
+      <symbol id="i-braces" viewBox="0 0 24 24"><path d="M8 3H7a2 2 0 0 0-2 2v4a2 2 0 0 1-2 2 2 2 0 0 1 2 2v4a2 2 0 0 0 2 2h1"/><path d="M16 3h1a2 2 0 0 1 2 2v4a2 2 0 0 0 2 2 2 2 0 0 0-2 2v4a2 2 0 0 1-2 2h-1"/></symbol>
+      <symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3"/></symbol>
+      <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4.03 3 9 3s9-1.34 9-3"/></symbol>
+      <symbol id="i-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/></symbol>
+      <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="m15.5 13.5 1.5 7.5-5-3-5 3 1.5-7.5"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></symbol>
+      <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="m12 3 1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9L12 3Z"/><path d="M19 15v4M17 17h4"/></symbol>
+      <symbol id="i-terminal" viewBox="0 0 24 24"><path d="m4 17 6-6-6-6"/><path d="M12 19h8"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24"><path d="m13 2-9 12h8l-1 8 9-12h-8l1-8Z"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></symbol>
+      <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></symbol>
+      <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+      <symbol id="i-presentation" viewBox="0 0 24 24"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></symbol>
+      <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4 20-7Z"/><path d="M22 2 11 13"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.24l8.84-8.84a5.5 5.5 0 0 0 0-7.79Z"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="logo" href="#home" aria-label="&lt;FY/&gt; Farhana Yesmin — home">
+        <span class="logo-mark">&lt;FY<span class="logo-accent">/</span>&gt;</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#achievements" class="nav-link">Achievements</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="icon-btn theme-toggle" id="themeToggle" type="button" aria-label="Switch to light mode" aria-pressed="false" title="Toggle theme">
+          <svg class="icon theme-icon-moon"><use href="#i-moon"></use></svg>
+          <svg class="icon theme-icon-sun"><use href="#i-sun"></use></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary btn-sm nav-cta">Hire Me <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks">
+          <svg class="icon icon-open"><use href="#i-menu"></use></svg>
+          <svg class="icon icon-close"><use href="#i-x"></use></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ================= HOME ================= -->
+    <section class="hero section" id="home" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-one"></span>
+        <span class="orb orb-two"></span>
+        <span class="orb orb-three"></span>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge anim-up" style="--d:.1s">
+            <span class="status-dot"></span>
+            4th Year Running &middot; Varendra University
+          </div>
+
+          <h1 class="hero-title anim-up" id="hero-title" style="--d:.18s">
+            Hi, I'm<br />
+            <span class="gradient-text">Farhana Yesmin</span>
+          </h1>
+
+          <p class="hero-role anim-up" style="--d:.26s">
+            <svg class="icon"><use href="#i-cap"></use></svg>
+            Computer Science and Engineering Student
+          </p>
+
+          <p class="hero-desc anim-up" style="--d:.34s">
+            Motivated Computer Science and Engineering student with a strong interest in programming, software development, algorithms and web technologies. Eager to apply technical knowledge and develop practical skills through real-world projects.
+          </p>
+
+          <div class="typing-line anim-up" style="--d:.42s" aria-label="Professional interests">
+            <span class="typing-label">Interested in</span>
+            <span class="typing-wrap"><span id="typedText">Artificial Intelligence</span><span class="typing-cursor" aria-hidden="true"></span></span>
+          </div>
+
+          <div class="hero-actions anim-up" style="--d:.5s">
+            <a href="#contact" class="btn btn-primary">Get In Touch <svg class="icon"><use href="#i-arrow-right"></use></svg></a>
+            <a href="#projects" class="btn btn-outline">View Projects <svg class="icon"><use href="#i-code"></use></svg></a>
+            <a href="assets/cv/Farhana_Yesmin_CV.pdf" download="Farhana_Yesmin_CV.pdf" class="btn btn-ghost">Download CV <svg class="icon"><use href="#i-download"></use></svg></a>
+          </div>
+
+          <div class="hero-socials anim-up" style="--d:.58s">
+            <span class="social-label">Find me on</span>
+            <a href="https://www.linkedin.com/in/farhana-yesmin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"></use></svg></a>
+            <a href="mailto:rifayesmin001@gmail.com" class="social-icon" aria-label="Email"><svg class="icon"><use href="#i-mail"></use></svg></a>
+            <a href="tel:+8801968320455" class="social-icon" aria-label="Phone"><svg class="icon"><use href="#i-phone"></use></svg></a>
+          </div>
+        </div>
+
+        <div class="hero-visual anim-up" style="--d:.3s">
+          <div class="visual-glow" aria-hidden="true"></div>
+          <div class="profile-card">
+            <div class="profile-portrait">
+              <div class="portrait-ring">
+                <div class="portrait-inner">
+                  <img src="assets/images/portrait-web.png" alt="Mst. Farhana Yesmin" class="portrait-photo" width="720" height="720" fetchpriority="high" />
+                </div>
+              </div>
+              <span class="portrait-badge"><svg class="icon"><use href="#i-pin"></use></svg> Rajshahi, Bangladesh</span>
+            </div>
+            <div class="profile-card-body">
+              <p class="profile-card-label">Currently pursuing</p>
+              <p class="profile-card-title">B.Sc. in Computer Science &amp; Engineering</p>
+              <p class="profile-card-sub">Varendra University &middot; 4th Year Running</p>
+            </div>
+          </div>
+
+          <div class="floating-card floating-top">
+            <span class="floating-icon"><svg class="icon"><use href="#i-braces"></use></svg></span>
+            <span><small>Languages I code in</small><strong>C, C++, Java, Python, JS</strong></span>
+          </div>
+          <div class="floating-card floating-bottom">
+            <span class="floating-icon alt"><svg class="icon"><use href="#i-sparkles"></use></svg></span>
+            <span><small>Passionate about</small><strong>AI &middot; Web &middot; Algorithms</strong></span>
+          </div>
+          <span class="decor-circle" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="container stats-row anim-up" style="--d:.66s">
+        <div class="stat-item"><strong>4<sup>th</sup> Year</strong><span>CSE Student</span></div>
+        <div class="stat-item"><strong>4.67</strong><span>HSC GPA / 5.00</span></div>
+        <div class="stat-item"><strong>4.83</strong><span>SSC GPA / 5.00</span></div>
+        <div class="stat-item"><strong>05</strong><span>Programming Languages</span></div>
+      </div>
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+    <section class="section section-alt" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 01 / About Me</span>
+          <h2 id="about-title">A little about <span class="gradient-text">me</span></h2>
+          <p>Get to know the person behind the code — my background, my focus, and what drives my curiosity in technology.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <h3>Who I am</h3>
+            <p>I am a motivated Computer Science and Engineering student at <strong>Varendra University</strong>, Rajshahi, with a strong interest in programming, software development, algorithms, and web technologies.</p>
+            <p>My academic journey has built a solid foundation in data structures, algorithms, database fundamentals and problem solving. I am also interested in Artificial Intelligence and emerging technologies, and I look forward to exploring how they can be applied to meaningful, real-world problems.</p>
+
+            <div class="objective-box">
+              <span class="objective-icon"><svg class="icon"><use href="#i-target"></use></svg></span>
+              <div>
+                <h4>Career Objective</h4>
+                <p>To apply technical knowledge, develop practical skills, and contribute to real-world projects in a professional environment while continuing to learn and grow.</p>
+              </div>
+            </div>
+
+            <div class="about-actions">
+              <a href="assets/cv/Farhana_Yesmin_CV.pdf" download="Farhana_Yesmin_CV.pdf" class="btn btn-primary">Download CV <svg class="icon"><use href="#i-download"></use></svg></a>
+              <a href="#contact" class="btn btn-outline">Let's Talk <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+            </div>
+          </div>
+
+          <aside class="about-card reveal" style="--d:.12s" aria-label="Quick facts">
+            <div class="about-card-head">
+              <span class="about-card-icon"><svg class="icon"><use href="#i-user"></use></svg></span>
+              <h3>Quick Facts</h3>
+            </div>
+            <dl class="fact-list">
+              <div><dt>Full Name</dt><dd>Mst. Farhana Yesmin</dd></div>
+              <div><dt>Location</dt><dd>Rajshahi, Bangladesh</dd></div>
+              <div><dt>Field of Study</dt><dd>Computer Science &amp; Engineering</dd></div>
+              <div><dt>University</dt><dd>Varendra University</dd></div>
+              <div><dt>Languages</dt><dd>Bangla (Native)<br />English (Professional Working Proficiency)</dd></div>
+            </dl>
+            <div class="personal-skills">
+              <h4>Personal Skills</h4>
+              <div class="chips">
+                <span class="chip">Problem Solving</span>
+                <span class="chip">Teamwork</span>
+                <span class="chip">Communication</span>
+                <span class="chip">Time Management</span>
+                <span class="chip">Adaptability</span>
+                <span class="chip">Continuous Learning</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section class="section" id="education" aria-labelledby="education-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 02 / Education</span>
+          <h2 id="education-title">Academic <span class="gradient-text">journey</span></h2>
+          <p>My educational background, from school to my current undergraduate studies.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-node"><svg class="icon"><use href="#i-cap"></use></svg></span>
+            <div class="timeline-card card">
+              <div class="timeline-top">
+                <span class="timeline-date"><svg class="icon"><use href="#i-calendar"></use></svg> 2023 &ndash; Present</span>
+                <span class="tag tag-primary">4th Year Running</span>
+              </div>
+              <h3>B.Sc. in Computer Science and Engineering</h3>
+              <p class="timeline-place">Varendra University, Rajshahi</p>
+              <p class="timeline-note">Currently pursuing undergraduate studies in Computer Science and Engineering.</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal" style="--d:.1s">
+            <span class="timeline-node"><svg class="icon"><use href="#i-book"></use></svg></span>
+            <div class="timeline-card card">
+              <div class="timeline-top">
+                <span class="timeline-date"><svg class="icon"><use href="#i-calendar"></use></svg> 2021</span>
+                <span class="tag tag-success">GPA: 4.67 / 5.00</span>
+              </div>
+              <h3>Higher Secondary Certificate (HSC) &ndash; Science</h3>
+              <p class="timeline-place">Premtoli Degree College</p>
+            </div>
+          </article>
+
+          <article class="timeline-item reveal" style="--d:.2s">
+            <span class="timeline-node"><svg class="icon"><use href="#i-book"></use></svg></span>
+            <div class="timeline-card card">
+              <div class="timeline-top">
+                <span class="timeline-date"><svg class="icon"><use href="#i-calendar"></use></svg> 2019</span>
+                <span class="tag tag-success">GPA: 4.83 / 5.00</span>
+              </div>
+              <h3>Secondary School Certificate (SSC) &ndash; Science</h3>
+              <p class="timeline-place">Premtoli Subhasia High School</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section section-alt" id="skills" aria-labelledby="skills-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 03 / Skills</span>
+          <h2 id="skills-title">Technical <span class="gradient-text">skills</span></h2>
+          <p>Languages, technologies, tools and core concepts I work with and continue to develop.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card reveal">
+            <span class="skill-icon violet"><svg class="icon"><use href="#i-code"></use></svg></span>
+            <h3>Programming Languages</h3>
+            <p>Languages I use to build and reason through solutions.</p>
+            <div class="chips">
+              <span class="chip chip-accent">C</span>
+              <span class="chip chip-accent">C++</span>
+              <span class="chip chip-accent">Java</span>
+              <span class="chip chip-accent">Python</span>
+              <span class="chip chip-accent">JavaScript</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" style="--d:.08s">
+            <span class="skill-icon cyan"><svg class="icon"><use href="#i-braces"></use></svg></span>
+            <h3>Web Technologies</h3>
+            <p>Tools for building clean and responsive web interfaces.</p>
+            <div class="chips">
+              <span class="chip chip-cyan">HTML5</span>
+              <span class="chip chip-cyan">CSS3</span>
+              <span class="chip chip-cyan">Bootstrap</span>
+              <span class="chip chip-cyan">React (Basic)</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" style="--d:.16s">
+            <span class="skill-icon amber"><svg class="icon"><use href="#i-cpu"></use></svg></span>
+            <h3>Tools &amp; Platforms</h3>
+            <p>Software and hardware platforms I have worked with.</p>
+            <div class="chips">
+              <span class="chip chip-amber">Git</span>
+              <span class="chip chip-amber">VS Code</span>
+              <span class="chip chip-amber">MATLAB</span>
+              <span class="chip chip-amber">Arduino</span>
+            </div>
+          </article>
+
+          <article class="skill-card reveal" style="--d:.24s">
+            <span class="skill-icon rose"><svg class="icon"><use href="#i-database"></use></svg></span>
+            <h3>Core Knowledge</h3>
+            <p>Fundamental computer science concepts and practices.</p>
+            <div class="chips">
+              <span class="chip chip-rose">Data Structures</span>
+              <span class="chip chip-rose">Algorithms</span>
+              <span class="chip chip-rose">Database Fundamentals</span>
+              <span class="chip chip-rose">Problem Solving</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="focus-panel reveal">
+          <div class="focus-head">
+            <span class="focus-icon"><svg class="icon"><use href="#i-zap"></use></svg></span>
+            <div>
+              <h3>Core Engineering Focus</h3>
+              <p>Areas I am actively interested in exploring and growing.</p>
+            </div>
+          </div>
+          <div class="focus-grid">
+            <div class="focus-item"><svg class="icon"><use href="#i-cpu"></use></svg><span>Software Development</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-sparkles"></use></svg><span>Artificial Intelligence</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-layers"></use></svg><span>Machine Learning</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-globe"></use></svg><span>Web Development</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-database"></use></svg><span>Data Science</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-bulb"></use></svg><span>Technology Research</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-target"></use></svg><span>Algorithm Design</span></div>
+            <div class="focus-item"><svg class="icon"><use href="#i-presentation"></use></svg><span>Problem Solving</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= PROJECTS ================= -->
+    <section class="section" id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 04 / Projects</span>
+          <h2 id="projects-title">Academic <span class="gradient-text">projects</span></h2>
+          <p>Selected academic work exploring artificial intelligence, algorithms, systems and databases.</p>
+        </div>
+
+        <article class="project-featured card reveal">
+          <div class="featured-copy">
+            <div class="project-meta">
+              <span class="tag tag-primary">Thesis</span>
+              <span class="tag tag-muted">In Progress</span>
+              <span class="project-number">01 / 05</span>
+            </div>
+            <h3>AI-Based Personalized Learning Platform</h3>
+            <p>Working on an adaptive learning platform to improve student performance through personalized learning. Exploring machine learning techniques and intelligent learning recommendations.</p>
+            <div class="chips">
+              <span class="chip chip-accent">Artificial Intelligence</span>
+              <span class="chip chip-accent">Machine Learning</span>
+              <span class="chip chip-accent">Personalized Learning</span>
+              <span class="chip chip-accent">Recommendations</span>
+            </div>
+          </div>
+          <div class="featured-art" aria-hidden="true">
+            <div class="art-orbit orbit-a"></div>
+            <div class="art-orbit orbit-b"></div>
+            <div class="art-core"><svg class="icon"><use href="#i-bulb"></use></svg></div>
+            <span class="art-node node-1"></span>
+            <span class="art-node node-2"></span>
+            <span class="art-node node-3"></span>
+            <span class="art-node node-4"></span>
+          </div>
+        </article>
+
+        <div class="projects-grid">
+          <article class="project-card card reveal">
+            <div class="project-top">
+              <span class="project-icon"><svg class="icon"><use href="#i-layers"></use></svg></span>
+              <span class="project-number">02 / 05</span>
+            </div>
+            <h3>Dynamic Programming Interactive Presentation</h3>
+            <p>Prepared technical presentations on Top-Down Memoization, Bottom-Up Tabulation, and algorithmic applications.</p>
+            <div class="chips"><span class="chip">Algorithms</span><span class="chip">Data Structures</span><span class="chip">Presentations</span></div>
+          </article>
+
+          <article class="project-card card reveal" style="--d:.08s">
+            <div class="project-top">
+              <span class="project-icon icon-cyan"><svg class="icon"><use href="#i-cpu"></use></svg></span>
+              <span class="project-number">03 / 05</span>
+            </div>
+            <h3>8086 Assembly Programming &amp; Register Operations</h3>
+            <p>Academic work exploring 8086 assembly programming and operations with processor registers.</p>
+            <div class="chips"><span class="chip chip-cyan">Assembly</span><span class="chip chip-cyan">Computer Architecture</span></div>
+          </article>
+
+          <article class="project-card card reveal" style="--d:.16s">
+            <div class="project-top">
+              <span class="project-icon icon-amber"><svg class="icon"><use href="#i-terminal"></use></svg></span>
+              <span class="project-number">04 / 05</span>
+            </div>
+            <h3>Regular Expression (Regex) Tools</h3>
+            <p>Academic work centered on regular expressions and tools for working with them.</p>
+            <div class="chips"><span class="chip chip-amber">Regex</span><span class="chip chip-amber">Text Processing</span></div>
+          </article>
+
+          <article class="project-card card reveal" style="--d:.24s">
+            <div class="project-top">
+              <span class="project-icon icon-rose"><svg class="icon"><use href="#i-database"></use></svg></span>
+              <span class="project-number">05 / 05</span>
+            </div>
+            <h3>National Data Management System Study</h3>
+            <p>Group project studying data management concepts at a national system level.</p>
+            <div class="chips"><span class="chip chip-rose">Database Fundamentals</span><span class="chip chip-rose">Teamwork</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section class="section section-alt" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 05 / Experience</span>
+          <h2 id="experience-title">Academic <span class="gradient-text">experience</span></h2>
+          <p>Practical experience gained through collaborative academic work and projects.</p>
+        </div>
+
+        <article class="experience-card card reveal">
+          <div class="exp-side">
+            <span class="exp-icon"><svg class="icon"><use href="#i-briefcase"></use></svg></span>
+            <span class="exp-date"><svg class="icon"><use href="#i-calendar"></use></svg> 2024 &ndash; Present</span>
+          </div>
+          <div class="exp-body">
+            <h3>CSE Student Project Collaborator</h3>
+            <p class="exp-place">Varendra University</p>
+            <ul class="exp-list">
+              <li><svg class="icon"><use href="#i-check"></use></svg><span>Participated in software assignments, system design, collaborative coding, and technical presentations.</span></li>
+              <li><svg class="icon"><use href="#i-check"></use></svg><span>Developed teamwork, project planning, and communication skills through academic activities.</span></li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ================= ACHIEVEMENTS & CERTIFICATIONS ================= -->
+    <section class="section" id="achievements" aria-labelledby="achievements-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 06 / Achievements &amp; Certifications</span>
+          <h2 id="achievements-title">Achievements &amp; <span class="gradient-text">certifications</span></h2>
+          <p>Academic highlights, certifications and areas of self-directed learning.</p>
+        </div>
+
+        <div class="achievement-grid">
+          <div class="cert-column reveal">
+            <h3 class="block-title"><svg class="icon"><use href="#i-award"></use></svg> Certifications &amp; Self-Learning</h3>
+            <div class="cert-list">
+              <article class="cert-card card">
+                <span class="cert-icon"><svg class="icon"><use href="#i-braces"></use></svg></span>
+                <div><h4>JavaScript (CSE321)</h4><p>Spring 2026 &middot; Online Course</p></div>
+              </article>
+              <article class="cert-card card">
+                <span class="cert-icon icon-cyan"><svg class="icon"><use href="#i-cpu"></use></svg></span>
+                <div><h4>Arduino Uno Development</h4><p>Basic to Advanced</p></div>
+              </article>
+              <article class="cert-card card">
+                <span class="cert-icon icon-amber"><svg class="icon"><use href="#i-zap"></use></svg></span>
+                <div><h4>MATLAB for Digital Signal Processing</h4><p>DSP &middot; Self-Learning</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="ach-side">
+            <article class="card academic-card reveal" style="--d:.1s">
+              <h3 class="block-title"><svg class="icon"><use href="#i-sparkles"></use></svg> Academic Highlights</h3>
+              <div class="academic-stats">
+                <div class="academic-stat"><strong>4.67<span>/5.00</span></strong><p>HSC &middot; Science &middot; 2021</p></div>
+                <div class="academic-stat"><strong>4.83<span>/5.00</span></strong><p>SSC &middot; Science &middot; 2019</p></div>
+              </div>
+            </article>
+
+            <article class="card interest-card reveal" style="--d:.18s">
+              <h3 class="block-title"><svg class="icon"><use href="#i-target"></use></svg> Professional Interests</h3>
+              <div class="chips">
+                <span class="chip">Software Development</span>
+                <span class="chip">Artificial Intelligence</span>
+                <span class="chip">Machine Learning</span>
+                <span class="chip">Web Development</span>
+                <span class="chip">Data Science</span>
+                <span class="chip">Technology Research</span>
+                <span class="chip">Algorithm Design</span>
+                <span class="chip">Problem Solving</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section section-alt" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 07 / Contact</span>
+          <h2 id="contact-title">Let's <span class="gradient-text">connect</span></h2>
+          <p>Have a question, an opportunity, or just want to say hello? My inbox is always open.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Get In Touch</h3>
+            <p>I'm eager to apply my technical knowledge, develop practical skills and contribute to real-world projects. Feel free to reach out — I'd love to hear from you.</p>
+
+            <div class="contact-list">
+              <a href="mailto:rifayesmin001@gmail.com" class="contact-item">
+                <span class="contact-icon"><svg class="icon"><use href="#i-mail"></use></svg></span>
+                <span><small>Email</small><strong>rifayesmin001@gmail.com</strong></span>
+              </a>
+              <a href="tel:+8801968320455" class="contact-item">
+                <span class="contact-icon"><svg class="icon"><use href="#i-phone"></use></svg></span>
+                <span><small>Phone</small><strong>+880 1968-320455</strong></span>
+              </a>
+              <div class="contact-item">
+                <span class="contact-icon"><svg class="icon"><use href="#i-pin"></use></svg></span>
+                <span><small>Location</small><strong>Rajshahi, Bangladesh</strong></span>
+              </div>
+              <a href="https://www.linkedin.com/in/farhana-yesmin" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <span class="contact-icon"><svg class="icon"><use href="#i-linkedin"></use></svg></span>
+                <span><small>LinkedIn</small><strong>linkedin.com/in/farhana-yesmin</strong></span>
+              </a>
+            </div>
+
+            <div class="contact-socials">
+              <span class="social-label">Connect with me</span>
+              <a href="https://www.linkedin.com/in/farhana-yesmin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"></use></svg></a>
+              <a href="mailto:rifayesmin001@gmail.com" class="social-icon" aria-label="Email"><svg class="icon"><use href="#i-mail"></use></svg></a>
+              <a href="tel:+8801968320455" class="social-icon" aria-label="Phone"><svg class="icon"><use href="#i-phone"></use></svg></a>
+            </div>
+          </div>
+
+          <form class="contact-form card reveal" id="contactForm" style="--d:.1s" novalidate>
+            <h3>Send a Message</h3>
+            <p class="form-intro">Fill in the details below and I'll get back to you as soon as I can.</p>
+            <div class="form-row">
+              <label for="formName">Your Name
+                <input type="text" id="formName" name="name" placeholder="Farhana Yesmin" autocomplete="name" required />
+              </label>
+              <label for="formEmail">Your Email
+                <input type="email" id="formEmail" name="email" placeholder="you@example.com" autocomplete="email" required />
+              </label>
+            </div>
+            <label for="formSubject">Subject
+              <input type="text" id="formSubject" name="subject" placeholder="Let's collaborate" required />
+            </label>
+            <label for="formMessage">Message
+              <textarea id="formMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </label>
+            <button type="submit" class="btn btn-primary btn-block">Send Message <svg class="icon"><use href="#i-send"></use></svg></button>
+            <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="#home" aria-label="&lt;FY/&gt; Farhana Yesmin — home"><span class="logo-mark">&lt;FY<span class="logo-accent">/</span>&gt;</span></a>
+        <p>Computer Science and Engineering student at Varendra University, interested in programming, algorithms, web technologies and AI.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/in/farhana-yesmin" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn"><svg class="icon"><use href="#i-linkedin"></use></svg></a>
+          <a href="mailto:rifayesmin001@gmail.com" class="social-icon" aria-label="Email"><svg class="icon"><use href="#i-mail"></use></svg></a>
+          <a href="tel:+8801968320455" class="social-icon" aria-label="Phone"><svg class="icon"><use href="#i-phone"></use></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#achievements">Achievements</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul class="footer-contact">
+          <li><a href="mailto:rifayesmin001@gmail.com">rifayesmin001@gmail.com</a></li>
+          <li><a href="tel:+8801968320455">+880 1968-320455</a></li>
+          <li>Rajshahi, Bangladesh</li>
+        </ul>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Mst. Farhana Yesmin. All rights reserved.</p>
+      <p>Made with <svg class="icon heart"><use href="#i-heart"></use></svg> and a lot of coffee.</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
+    <svg class="icon"><use href="#i-arrow-up"></use></svg>
+  </button>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
