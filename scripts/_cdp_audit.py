@@ -22,7 +22,7 @@ AUDIT_JS = r"""
   document.querySelectorAll("body *").forEach(el => {
     const cs = getComputedStyle(el);
     if (cs.visibility === "hidden" || cs.display === "none" || parseFloat(cs.opacity) === 0) return;
-    if (el.closest(".hero-bg,.svg-sprite,.loader")) return;
+    if (el.closest(".hero-bg,.svg-sprite,.loader,.ambient,.scroll-progress")) return;
     const r = el.getBoundingClientRect();
     if (!r.width || !r.height) return;
     if (r.right > vw + 1 || r.left < -1) overflow.push({ el: el.tagName.toLowerCase() + "." + String(el.className || "").trim().split(/\s+/).slice(0, 2).join("."), l: Math.round(r.left), r: Math.round(r.right) });

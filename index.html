@@ -23,7 +23,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="preload" as="image" href="assets/images/portrait-web.webp" type="image/webp" />
 
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -65,6 +65,16 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Decorative ambient layer: fixed, non-interactive, pointer-reactive -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient-grid"></div>
+    <div class="ambient-orbit ambient-orbit--one"></div>
+    <div class="ambient-orbit ambient-orbit--two"></div>
+    <div class="ambient-axis ambient-axis--x"></div>
+    <div class="ambient-axis ambient-axis--y"></div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
 
   <!-- Icon sprite (Lucide-style, consistent 1.8px stroke) -->
   <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -109,6 +119,7 @@
         <li><a href="#education" class="nav-link">Education</a></li>
         <li><a href="#skills" class="nav-link">Skills</a></li>
         <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#github" class="nav-link">GitHub</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
         <li><a href="#achievements" class="nav-link">Achievements</a></li>
         <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -530,11 +541,44 @@
       </div>
     </section>
 
+    <!-- ================= GITHUB ================= -->
+    <section class="section section-alt" id="github" aria-labelledby="github-title">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow"><span class="eyebrow-line"></span> 07 / GitHub</span>
+          <h2 id="github-title">Built in <span class="accent-text">public</span></h2>
+          <p>My one public repository and the live site it powers.</p>
+        </div>
+
+        <article class="github-card card reveal">
+          <div class="github-copy">
+            <div class="project-meta">
+              <span class="tag tag-primary">Public</span>
+              <span class="tag tag-muted">CSS</span>
+              <span class="project-number">01 / 01</span>
+            </div>
+            <h3>portfolio</h3>
+            <p>The source for this site: semantic HTML, a solid-colour CSS design system and vanilla JavaScript, with no build step or runtime dependencies.</p>
+            <div class="chips">
+              <span class="chip chip-accent">HTML</span>
+              <span class="chip chip-accent">CSS</span>
+              <span class="chip chip-accent">JavaScript</span>
+            </div>
+            <div class="github-actions">
+              <a href="https://github.com/rifaCodes/portfolio" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View repository <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+              <a href="https://rifacodes.github.io/portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Live site <svg class="icon"><use href="#i-arrow-up-right"></use></svg></a>
+            </div>
+          </div>
+          <div class="github-mark" aria-hidden="true"><svg class="icon"><use href="#i-terminal"></use></svg></div>
+        </article>
+      </div>
+    </section>
+
     <!-- ================= CONTACT ================= -->
     <section class="section section-alt" id="contact" aria-labelledby="contact-title">
       <div class="container">
         <div class="section-head reveal">
-          <span class="eyebrow"><span class="eyebrow-line"></span> 07 / Contact</span>
+          <span class="eyebrow"><span class="eyebrow-line"></span> 08 / Contact</span>
           <h2 id="contact-title">Let's <span class="accent-text">connect</span></h2>
           <p>Have a question, an opportunity, or just want to say hello? My inbox is always open.</p>
         </div>
@@ -621,6 +665,7 @@
         <h4>Explore</h4>
         <ul>
           <li><a href="#projects">Projects</a></li>
+          <li><a href="#github">GitHub</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#achievements">Achievements</a></li>
           <li><a href="#contact">Contact</a></li>

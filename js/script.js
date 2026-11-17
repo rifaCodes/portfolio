@@ -32,12 +32,15 @@
     });
   }
 
-  /* ---------- Header shadow on scroll ---------- */
+  /* ---------- Header shadow, scroll progress and back-to-top ---------- */
   const header = $("#siteHeader");
   const backToTop = $("#backToTop");
+  const root = document.documentElement;
   let scrollTicking = false;
   function onScroll() {
     const y = window.scrollY || window.pageYOffset;
+    const max = Math.max(1, root.scrollHeight - window.innerHeight);
+    root.style.setProperty("--progress", String(Math.min(1, Math.max(0, y / max))));
     if (header) header.classList.toggle("scrolled", y > 30);
     if (backToTop) backToTop.classList.toggle("visible", y > 600);
     scrollTicking = false;
@@ -48,6 +51,7 @@
       scrollTicking = true;
     }
   }, { passive: true });
+  window.addEventListener("resize", onScroll, { passive: true });
   onScroll();
 
   if (backToTop) {
@@ -244,8 +248,8 @@
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let teardown = null;
 
-  const MAGNETIC = ".btn, .nav-link, .social-icon, .icon-btn, .menu-toggle, .tech-card, .project-card, .back-to-top";
-  const INTERACTIVE = 'a, button, input, textarea, [role="button"], .tech-card, .project-card';
+  const MAGNETIC = ".btn, .nav-link, .social-icon, .icon-btn, .menu-toggle, .tech-card, .project-card, .project-featured, .github-card, .back-to-top";
+  const INTERACTIVE = 'a, button, input, textarea, [role="button"], .tech-card, .project-card, .project-featured, .github-card';
   const lerp = (a, b, n) => a + (b - a) * n;
   const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
 
@@ -402,6 +406,10 @@
       ring.style.transform = "translate3d(" + cursor.rx.toFixed(1) + "px," + cursor.ry.toFixed(1) + "px,0) scale(" + cursor.ring.toFixed(3) + ")";
       dot.style.opacity = ring.style.opacity = pointer.inside ? "1" : "0";
 
+      // Gentle parallax for the ambient grid, orbits and hero portrait.
+      root.style.setProperty("--ax", (((cursor.x / w) - 0.5) * -20).toFixed(1) + "px");
+      root.style.setProperty("--ay", (((cursor.y / h) - 0.5) * -20).toFixed(1) + "px");
+
       ctx.clearRect(0, 0, w, h);
 
       // motion trail
@@ -493,6 +501,8 @@
       ring.remove();
       dot.remove();
       root.classList.remove("fx-active");
+      root.style.removeProperty("--ax");
+      root.style.removeProperty("--ay");
       teardown = null;
     };
     window.addEventListener("pagehide", teardown, { once: true });
