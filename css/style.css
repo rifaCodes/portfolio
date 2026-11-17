@@ -964,16 +964,6 @@ a.contact-item:hover { border-color: var(--accent); }
   font-size: 0.84rem;
   color: var(--muted);
 }
-.footer-bottom .heart {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  color: var(--danger);
-  fill: var(--danger);
-  vertical-align: -2px;
-  margin-inline: 2px;
-}
-
 /* ---------- Back to top ---------- */
 .back-to-top {
   position: fixed;
