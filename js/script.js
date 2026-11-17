@@ -8,34 +8,14 @@
   const $$ = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
   const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---------- Loading screen ---------- */
-  const loader = $("#loader");
-  function hideLoader() {
-    if (!loader) return;
-    loader.classList.add("is-hidden");
-    window.setTimeout(() => loader.remove(), 700);
-  }
-  if (document.readyState === "complete") {
-    window.setTimeout(hideLoader, 450);
-  } else {
-    window.addEventListener("load", () => window.setTimeout(hideLoader, 450));
-  }
-  // Safety net in case load never fires
-  window.setTimeout(hideLoader, 3000);
-
   /* ---------- Theme toggle ---------- */
   const themeToggle = $("#themeToggle");
   const themeMeta = $('meta[name="theme-color"]');
-  const storedTheme = (() => {
-    try { return localStorage.getItem("fy-theme"); } catch (e) { return null; }
-  })();
-  const initialTheme = storedTheme === "light" || storedTheme === "dark"
-    ? storedTheme
-    : (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  const initialTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "dark" : "light";
 
   function applyTheme(theme) {
     document.documentElement.setAttribute("data-theme", theme);
-    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#070b16" : "#f6f7fb");
+    if (themeMeta) themeMeta.setAttribute("content", theme === "dark" ? "#0b1220" : "#ffffff");
     if (themeToggle) {
       const isLight = theme === "light";
       themeToggle.setAttribute("aria-pressed", String(isLight));
