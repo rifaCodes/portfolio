@@ -231,3 +231,281 @@
     });
   }
 })();
+
+/* =========================================================
+   Antigravity-inspired pointer field
+   Desktop fine pointers only. No dependencies, no markup edits.
+   All layers are pointer-events:none and driven by one rAF loop.
+   ========================================================= */
+(function () {
+  "use strict";
+
+  const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  let teardown = null;
+
+  const MAGNETIC = ".btn, .nav-link, .social-icon, .icon-btn, .menu-toggle, .tech-card, .project-card, .back-to-top";
+  const INTERACTIVE = 'a, button, input, textarea, [role="button"], .tech-card, .project-card';
+  const lerp = (a, b, n) => a + (b - a) * n;
+  const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+
+  function start() {
+    if (teardown || !finePointer.matches || reducedMotion.matches) return;
+
+    const root = document.documentElement;
+    const controller = new AbortController();
+    const opts = { signal: controller.signal, passive: true };
+
+    // --- decorative layers ---
+    const canvas = document.createElement("canvas");
+    canvas.className = "fx-canvas";
+    canvas.setAttribute("aria-hidden", "true");
+    const ring = document.createElement("div");
+    ring.className = "fx-ring";
+    ring.setAttribute("aria-hidden", "true");
+    const dot = document.createElement("div");
+    dot.className = "fx-dot";
+    dot.setAttribute("aria-hidden", "true");
+    document.body.appendChild(canvas);
+    document.body.appendChild(ring);
+    document.body.appendChild(dot);
+    root.classList.add("fx-active");
+
+    const ctx = canvas.getContext("2d", { alpha: true });
+    let w = 0, h = 0;
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = window.innerWidth;
+      h = window.innerHeight;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+
+    // --- palette, taken from the existing design tokens ---
+    const parseColor = (value) => {
+      const hex = value.trim().replace("#", "");
+      if (hex.length === 3) return [0, 2, 4].map((i) => parseInt(hex[i] + hex[i], 16));
+      return [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16));
+    };
+    let accent = [29, 78, 216];
+    let teal = [15, 118, 110];
+    function readPalette() {
+      const style = getComputedStyle(root);
+      const a = style.getPropertyValue("--accent");
+      const t = style.getPropertyValue("--teal");
+      if (a) accent = parseColor(a);
+      if (t) teal = parseColor(t);
+    }
+    readPalette();
+    const themeObserver = new MutationObserver(readPalette);
+    themeObserver.observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+
+    // --- pointer / cursor state ---
+    const pointer = { x: w / 2, y: h / 2, px: w / 2, py: h / 2, speed: 0, inside: false, down: false };
+    const cursor = { x: pointer.x, y: pointer.y, rx: pointer.x, ry: pointer.y, scale: 1, scaleTo: 1, ring: 1, ringTo: 1 };
+    const trail = [];
+
+    const particles = Array.from({ length: 18 }, () => ({
+      x: Math.random() * w,
+      y: Math.random() * h,
+      vx: (Math.random() - 0.5) * 0.25,
+      vy: (Math.random() - 0.5) * 0.25,
+      r: 1 + Math.random() * 1.4,
+      phase: Math.random() * Math.PI * 2
+    }));
+
+    // --- subtle section-reactive tint ---
+    let tintTo = 0, tint = 0;
+    const sections = Array.from(document.querySelectorAll("main > section"));
+    const sectionObserver = "IntersectionObserver" in window
+      ? new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const i = sections.indexOf(entry.target);
+            tintTo = i >= 0 && i % 2 === 1 ? 1 : 0;
+          });
+        }, { rootMargin: "-40% 0px -40% 0px", threshold: 0 })
+      : null;
+    if (sectionObserver) sections.forEach((s) => sectionObserver.observe(s));
+
+    // --- magnetic targets ---
+    const magState = new Map();
+    Array.from(document.querySelectorAll(MAGNETIC)).forEach((el) => {
+      magState.set(el, { x: 0, y: 0, tx: 0, ty: 0 });
+    });
+    let activeMag = null;
+
+    // --- events ---
+    window.addEventListener("resize", resize, opts);
+    window.addEventListener("pointermove", (event) => {
+      if (event.pointerType && event.pointerType !== "mouse" && event.pointerType !== "pen") return;
+      pointer.px = pointer.x;
+      pointer.py = pointer.y;
+      pointer.x = event.clientX;
+      pointer.y = event.clientY;
+      pointer.speed = Math.min(40, Math.hypot(pointer.x - pointer.px, pointer.y - pointer.py));
+      if (!pointer.inside) {
+        pointer.inside = true;
+        cursor.x = cursor.rx = pointer.x;
+        cursor.y = cursor.ry = pointer.y;
+      }
+      const last = trail[trail.length - 1];
+      if (!last || Math.hypot(pointer.x - last.x, pointer.y - last.y) > 3) {
+        trail.push({ x: pointer.x, y: pointer.y, t: performance.now() });
+        if (trail.length > 16) trail.shift();
+      }
+    }, opts);
+
+    document.addEventListener("pointerover", (event) => {
+      const interactive = event.target.closest(INTERACTIVE);
+      ring.classList.toggle("is-hover", Boolean(interactive));
+      cursor.ringTo = interactive ? 1.65 : 1;
+      cursor.scaleTo = interactive ? 0.55 : 1;
+      const mag = event.target.closest(MAGNETIC);
+      if (mag && mag !== activeMag) activeMag = mag;
+    }, opts);
+
+    document.addEventListener("pointerout", (event) => {
+      const mag = event.target.closest(MAGNETIC);
+      if (mag && mag === activeMag && (!event.relatedTarget || !mag.contains(event.relatedTarget))) {
+        const state = magState.get(mag);
+        if (state) { state.tx = 0; state.ty = 0; }
+        activeMag = null;
+      }
+      if (!event.relatedTarget) pointer.inside = false;
+    }, opts);
+
+    window.addEventListener("pointerdown", () => { pointer.down = true; }, opts);
+    window.addEventListener("pointerup", () => { pointer.down = false; }, opts);
+    document.addEventListener("mouseenter", () => { pointer.inside = true; }, opts);
+    document.addEventListener("mouseleave", () => { pointer.inside = false; }, opts);
+
+    // --- single animation loop ---
+    let raf = 0;
+    let running = true;
+    function frame(now) {
+      if (!running) return;
+      raf = requestAnimationFrame(frame);
+      pointer.speed *= 0.9;
+      while (trail.length && now - trail[0].t > 420) trail.shift();
+
+      // cursor dot, ring and hover scaling
+      cursor.x = lerp(cursor.x, pointer.x, 0.38);
+      cursor.y = lerp(cursor.y, pointer.y, 0.38);
+      cursor.rx = lerp(cursor.rx, pointer.x, 0.16);
+      cursor.ry = lerp(cursor.ry, pointer.y, 0.16);
+      cursor.scale = lerp(cursor.scale, pointer.down ? 0.7 : cursor.scaleTo, 0.18);
+      cursor.ring = lerp(cursor.ring, pointer.down ? 0.8 : cursor.ringTo, 0.14);
+      dot.style.transform = "translate3d(" + cursor.x.toFixed(1) + "px," + cursor.y.toFixed(1) + "px,0) scale(" + cursor.scale.toFixed(3) + ")";
+      ring.style.transform = "translate3d(" + cursor.rx.toFixed(1) + "px," + cursor.ry.toFixed(1) + "px,0) scale(" + cursor.ring.toFixed(3) + ")";
+      dot.style.opacity = ring.style.opacity = pointer.inside ? "1" : "0";
+
+      ctx.clearRect(0, 0, w, h);
+
+      // motion trail
+      if (trail.length > 1 && pointer.speed > 1) {
+        ctx.lineWidth = 1.2;
+        for (let i = 1; i < trail.length; i++) {
+          const a = trail[i - 1], b = trail[i];
+          const alpha = (i / trail.length) * 0.1 * Math.min(1, pointer.speed / 12);
+          ctx.strokeStyle = "rgba(" + accent.join(",") + "," + alpha.toFixed(3) + ")";
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+
+      // palette blend between accent and teal across sections
+      tint = lerp(tint, tintTo, 0.02);
+      const rgb = accent.map((c, i) => Math.round(lerp(c, teal[i], tint))).join(",");
+      const fast = pointer.speed > 10;
+
+      // floating particles: gentle attraction, dispersion on fast movement
+      for (const p of particles) {
+        if (pointer.inside) {
+          const dx = pointer.x - p.x, dy = pointer.y - p.y;
+          const dist = Math.hypot(dx, dy) || 1;
+          if (dist < 230) {
+            const force = (1 - dist / 230) * (fast ? -0.026 : 0.018);
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+        p.vx += Math.sin(now * 0.00035 + p.phase) * 0.004;
+        p.vy += Math.cos(now * 0.0003 + p.phase) * 0.004;
+        p.vx *= 0.965;
+        p.vy *= 0.965;
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -20) p.x = w + 20; else if (p.x > w + 20) p.x = -20;
+        if (p.y < -20) p.y = h + 20; else if (p.y > h + 20) p.y = -20;
+
+        let alpha = 0.06;
+        if (pointer.inside) {
+          const d = Math.hypot(pointer.x - p.x, pointer.y - p.y);
+          alpha += Math.max(0, 1 - d / 260) * 0.16;
+        }
+        ctx.fillStyle = "rgba(" + rgb + "," + alpha.toFixed(3) + ")";
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // magnetic pull, eased back to rest on exit
+      if (activeMag) {
+        const state = magState.get(activeMag);
+        const r = activeMag.getBoundingClientRect();
+        state.tx = clamp((pointer.x - (r.left + r.width / 2)) * 0.13, -8, 8);
+        state.ty = clamp((pointer.y - (r.top + r.height / 2)) * 0.13, -8, 8);
+      }
+      magState.forEach((state, el) => {
+        if (Math.abs(state.x - state.tx) < 0.05 && Math.abs(state.y - state.ty) < 0.05) return;
+        state.x = lerp(state.x, state.tx, 0.18);
+        state.y = lerp(state.y, state.ty, 0.18);
+        el.style.translate = state.x.toFixed(2) + "px " + state.y.toFixed(2) + "px";
+      });
+    }
+    raf = requestAnimationFrame(frame);
+
+    function onVisibility() {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(raf);
+      } else if (!running) {
+        running = true;
+        raf = requestAnimationFrame(frame);
+      }
+    }
+    document.addEventListener("visibilitychange", onVisibility, opts);
+
+    teardown = function destroy() {
+      running = false;
+      cancelAnimationFrame(raf);
+      controller.abort();
+      document.removeEventListener("visibilitychange", onVisibility);
+      themeObserver.disconnect();
+      if (sectionObserver) sectionObserver.disconnect();
+      magState.forEach((state, el) => { el.style.translate = ""; });
+      canvas.remove();
+      ring.remove();
+      dot.remove();
+      root.classList.remove("fx-active");
+      teardown = null;
+    };
+    window.addEventListener("pagehide", teardown, { once: true });
+  }
+
+  function onChange() {
+    if (!finePointer.matches || reducedMotion.matches) {
+      if (teardown) teardown();
+    } else {
+      start();
+    }
+  }
+  if (finePointer.addEventListener) finePointer.addEventListener("change", onChange);
+  if (reducedMotion.addEventListener) reducedMotion.addEventListener("change", onChange);
+  start();
+})();

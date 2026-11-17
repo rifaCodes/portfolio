@@ -33,6 +33,13 @@ robots.txt              Crawler directives for hosted deployments
 - Mobile buttons use pill radii with a 46px minimum height; cards, grids and typography adapt fluidly down to 320px. Headings use balanced wrapping and long text is protected from overflow.
 - Verified at 2560, 1920, 1440, 1280, 1024, 768, 430, 390, 375 and 320px.
 
+## Pointer interaction
+
+- A self-contained Antigravity-inspired pointer field runs only on fine-pointer devices with motion enabled: a precise dot, a trailing ring, 18 drifting particles, a short motion trail and gentle magnetic pull on buttons, links, cards and icons.
+- All layers are `pointer-events: none` and share one `requestAnimationFrame` loop. Magnetism uses the independent `translate` property so it never conflicts with existing hover or scroll-reveal transforms.
+- Colours come from the existing `--accent` / `--teal` tokens and shift subtly between sections; the theme toggle updates the palette live.
+- Touch-only devices, coarse pointers and `prefers-reduced-motion` get no custom cursor, canvas or tracking at all — the native cursor and existing interactions remain. The field also pauses on hidden tabs and tears down on `pagehide` or media-query changes.
+
 ## Assets
 
 - **Portrait:** the hero uses `assets/images/portrait-web.webp` (69 KB) with a transparent PNG fallback. A 1180px PNG master is at `assets/images/portrait.png`. Generated from the original photograph with `scripts/retouch_portrait.py` using deterministic image filters only — no generative editing.
