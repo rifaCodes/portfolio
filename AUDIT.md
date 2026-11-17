@@ -107,4 +107,10 @@ Scope: `index.html`, `css/style.css`, `js/script.js`, assets, live page at 1920 
 - Repository facts were verified from the repo page and the GitHub API: public visibility, primary language Python with Python and HTML in the language breakdown, MIT licence, no description/topics/homepage and therefore no live demo. Only one "View repository" action is shown; the old source and GitHub Pages links for `rifaCodes/portfolio` were removed from the section, `README.md` and this audit.
 - The card copy is drawn strictly from the repository README (Streamlit app with district weather/market dashboard, bilingual voice AI advisory, plant disease scanner and verified dealer directory). No star/fork counts, extra projects or demo URLs were added.
 
+## 11. WhatsApp contact links
+
+- The user confirmed the published phone number is a WhatsApp number. Every former `tel:` link (hero socials, contact list, "Connect with me", footer socials and footer contact list) now opens `https://wa.me/8801968320455` in a new tab with `rel="noopener noreferrer"`.
+- The contact-list row is labelled "WhatsApp" and the "Connect with me" group uses the official WhatsApp glyph from Simple Icons, added to the existing inline sprite as `i-whatsapp` and coloured with `currentColor` via `.icon-brand` so it works in both themes. No phone links remain.
+- The contact form still opens the visitor's email client via `mailto:`; its behaviour is unchanged.
+
 

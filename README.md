@@ -84,5 +84,6 @@ Then visit `http://localhost:8000`.
 - **CV download:** replace `assets/cv/Farhana_Yesmin_CV.pdf` to update the downloadable file.
 - **Colours and fonts:** edit the design tokens at the top of `css/style.css`.
 - **Contact:** the form opens the visitor's email client with a prefilled message; there is no backend. Update the `mailto:` address in `js/script.js` and `index.html` if it changes.
+- **WhatsApp:** the phone number is a WhatsApp contact. All phone links use `https://wa.me/8801968320455` (country code included, leading `0` removed) and show the official WhatsApp glyph; update the number everywhere in `index.html` if it changes.
 
 All biographical content is sourced strictly from the supplied CV. The only linked repository is the real public `rifaCodes/smart-agriculture-assistant` source; no other projects are invented.

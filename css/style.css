@@ -191,6 +191,8 @@ main, .site-header, .site-footer { position: relative; z-index: 1; }
   stroke-linejoin: round;
   flex-shrink: 0;
 }
+/* Official filled brand glyphs (e.g. WhatsApp) use the same currentColor token. */
+.icon-brand { fill: currentColor; stroke: none; }
 
 .skip-link {
   position: fixed;
