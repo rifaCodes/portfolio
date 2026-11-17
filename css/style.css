@@ -648,6 +648,16 @@ a, .social-icon, .menu-toggle { touch-action: manipulation; }
   border-radius: var(--radius-sm);
   padding: 8px;
 }
+.board-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 5px;
+}
 
 /* ---------- Skills ---------- */
 .skill-group + .skill-group { margin-top: 30px; }

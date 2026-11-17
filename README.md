@@ -9,7 +9,7 @@ index.html              Semantic markup, all CV content, SEO metadata and JSON-L
 css/style.css           Solid-colour design system, themes, layout and responsive rules
 js/script.js            Theme toggle, mobile nav, scroll reveal, typing effect, contact form
 assets/cv/              Downloadable CV PDF (copied from the original CV)
-assets/images/          Retouched portrait and the official Varendra University logo
+assets/images/          Retouched portrait, official Varendra University logo and Rajshahi Education Board emblem
 assets/icons/           Official brand SVGs for the technologies listed in the CV
 assets/favicon.svg      Site icon
 scripts/                Portrait-retouching and responsive-audit helpers

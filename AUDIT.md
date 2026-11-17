@@ -72,3 +72,9 @@ Scope: `index.html`, `css/style.css`, `js/script.js`, assets, live page at 1920 
 - **Typography and controls:** `clamp()` sizing, balanced heading wrapping, protected long-word wrapping, pill buttons with 46px touch height, softer 16/22px mobile card radii and press feedback for touch.
 - **Large displays:** container and spacing scale at 2200px+ so 2560px screens stay composed without changing the verified 1920px design.
 - **Verification:** the CDP audit now covers 2560 / 1920 / 1440 / 1280 / 1024 / 768 / 430 / 390 / 375 / 320px and checks overlaps in addition to overflow, clipped text and tiny text. All ten widths: **0 overflow, 0 clipped, 0 tiny, 0 overlaps**. Mobile-menu interaction check passes every state with 0 JS errors. Lighthouse remains **1.00 / 1.00 / 1.00** in both themes with no console errors.
+
+## 6. Education board emblem
+
+- The HSC and SSC entries now use the official **Board of Intermediate and Secondary Education, Rajshahi** seal that appears on the certificates, sourced from the board's own site (`https://rajshahiboard.gov.bd/wp-content/uploads/2025/08/rb_logo.png`) and stored locally at `assets/images/rajshahi-education-board-logo.png`. A 175×180 optimised copy replaces the 367×378 original.
+- Each entry shows the emblem beside the qualification, with the board name stated explicitly. The university logo treatment is reused (white tile, 1px border, 5px padding) so the emblem stays legible in both themes; at 700px and below the logo stacks above the text with the rest of the education cards.
+- Both emblems load successfully, render at 58×58px, and the ten-breakpoint audit still reports 0 overflow / clipped / tiny / overlaps. Lighthouse remains 1.00 / 1.00 / 1.00 in both themes with no console errors.
