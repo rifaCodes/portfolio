@@ -43,7 +43,7 @@ robots.txt              Crawler directives for hosted deployments
 
 ## GitHub
 
-- A dedicated section presents the one real public repository, `rifaCodes/portfolio`, with verified links to the source and to the live GitHub Pages site. No other projects or repository statistics are invented.
+- A dedicated section presents the real public repository `rifaCodes/smart-agriculture-assistant` with a verified link to the source. Its description and tags come only from the repository README, languages and licence; no invented demo link, statistics or extra projects are shown.
 
 ## Assets
 
@@ -85,4 +85,4 @@ Then visit `http://localhost:8000`.
 - **Colours and fonts:** edit the design tokens at the top of `css/style.css`.
 - **Contact:** the form opens the visitor's email client with a prefilled message; there is no backend. Update the `mailto:` address in `js/script.js` and `index.html` if it changes.
 
-All biographical content is sourced strictly from the supplied CV. The only linked repository is the real public `rifaCodes/portfolio` source; no other projects are invented.
+All biographical content is sourced strictly from the supplied CV. The only linked repository is the real public `rifaCodes/smart-agriculture-assistant` source; no other projects are invented.
