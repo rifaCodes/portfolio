@@ -42,15 +42,18 @@ robots.txt              Crawler directives for hosted deployments
 
 ## Assets
 
-- **Portrait:** the hero uses `assets/images/portrait-web.webp` (69 KB) with a transparent PNG fallback. A 1180px PNG master is at `assets/images/portrait.png`. Generated from the original photograph with `scripts/retouch_portrait.py` using deterministic image filters only — no generative editing.
+- **Portrait:** the hero shows the selected retouched Option 1 export as a large circular portrait. `assets/images/portrait-web.webp` (24 KB) and its PNG fallback (305 KB) are 720×720 square crops starting 15% down the tall source, so the face sits naturally in the circle. The crop is made from the existing retouched pixels only — no generative face edits. The earlier 1180px master remains at `assets/images/portrait.png`.
 - **University logo:** the authentic logo is downloaded unmodified from the official Varendra University site (`https://www.vu.edu.bd/assets/img/logo.png`) and used only in the education section.
 - **Technology logos:** official brand SVGs from devicon (`https://devicon.dev`) for the 13 technologies named in the CV. No technology outside the CV is shown.
 
-Regenerate the portrait with:
+Regenerate the portrait assets with:
 
 ```bash
 pip install rembg onnxruntime opencv-python pillow numpy
-python scripts/retouch_portrait.py
+python scripts/retouch_portrait.py          # original retouching pipeline
+
+# After choosing a retouched option on the Desktop, refresh the circular hero crop:
+python scripts/prepare_selected_portrait.py
 ```
 
 Run the responsive layout probe (Chrome required):
